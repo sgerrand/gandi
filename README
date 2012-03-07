@@ -8,16 +8,20 @@ API endpoint:
 * Test: https://rpc.ote.gandi.net/xmlrpc/
 * Production: https://rpc.gandi.net/xmlrpc/
 
+Feel free to fork it and fix it you need to.
+
 USAGE
 =====
 
 require 'gandi'
 
 # test env
-api = Gandi::Session.connect("24-character API key", "https://rpc.gandi.net/xmlrpc/")
+api = Gandi::Session.connect("24-character API key", "https://rpc.ote.gandi.net/xmlrpc/")
 
 api.domain.list
 api.domain.info('mydomain.com')
+api.hosting.list
+api.catalog.list(product: {type: 'domains'})
 ...
 
 
@@ -25,4 +29,6 @@ api.domain.info('mydomain.com')
 api = Gandi::Session.connect("24-character API key")
 api.domain.list
 api.domain.info('mydomain.com')
+api.hosting.list
+api.catalog.list(product: {type: 'domains'})
 ...
