@@ -1,0 +1,28 @@
+DOCUMENTATION
+=============
+
+See https://rpc.ote.gandi.net/doc/2.0/
+
+API endpoint:
+
+* Test: https://rpc.ote.gandi.net/xmlrpc/
+* Production: https://rpc.gandi.net/xmlrpc/
+
+USAGE
+=====
+
+require 'gandi'
+
+# test env
+api = Gandi::Session.connect("24-character API key", "https://rpc.gandi.net/xmlrpc/")
+
+api.domain.list
+api.domain.info('mydomain.com')
+...
+
+
+# production env
+api = Gandi::Session.connect("24-character API key")
+api.domain.list
+api.domain.info('mydomain.com')
+...
