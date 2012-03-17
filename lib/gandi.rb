@@ -3,6 +3,7 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
+require 'hashie'
 require 'xmlrpc/client'
 require 'gandi/session'
 require 'gandi/errors'

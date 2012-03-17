@@ -131,8 +131,13 @@ module Gandi
       self.chained << method
       method_name = chained.join(".")
       if Gandi::VALID_METHODS.include?(method_name)
-        # puts "CALL: #{method_name} - #{api_key} - #{args.inspect}"
-        self.server.call(method_name, api_key, *args)
+        puts "CALL: #{method_name} - #{api_key} - #{args.inspect}"
+        res = self.server.call(method_name, api_key, *args)
+        if res.is_a?(Array)
+          res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
+        else
+          Hashie::Mash.new(res)
+        end
       else
         self
       end

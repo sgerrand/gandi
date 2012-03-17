@@ -16,7 +16,7 @@ USAGE
 require 'gandi'
 
 # test env
-api = Gandi::Session.connect("24-character API key", "https://rpc.ote.gandi.net/xmlrpc/")
+api = Gandi::Session.new("24-character API key", "https://rpc.ote.gandi.net/xmlrpc/")
 
 api.domain.list
 api.domain.info('mydomain.com')
@@ -26,7 +26,7 @@ api.catalog.list(product: {type: 'domains'})
 
 
 # production env
-api = Gandi::Session.connect("24-character API key")
+api = Gandi::Session.new("24-character API key")
 api.domain.list
 api.domain.info('mydomain.com')
 api.hosting.list
