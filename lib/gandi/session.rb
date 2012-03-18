@@ -135,8 +135,10 @@ module Gandi
         res = self.server.call(method_name, api_key, *args)
         if res.is_a?(Array)
           res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
-        else
+        elsif res.is_a?(Hash)
           Hashie::Mash.new(res)
+        else
+          res
         end
       else
         self
