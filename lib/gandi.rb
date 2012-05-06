@@ -9,5 +9,19 @@ require 'gandi/session'
 require 'gandi/errors'
 
 module Gandi
-  VERSION = '2.0.0'
+  VERSION = '2.0.2'
+  
+  def silence_warnings
+    old_verbose, $VERBOSE = $VERBOSE, nil
+    yield
+  ensure
+    $VERBOSE = old_verbose
+  end
+  
+  silence_warnings do
+    # gandi sometimes return <nil/> values so let's accept them to prevent exceptions
+    XMLRPC::Config::ENABLE_NIL_PARSER = true
+    XMLRPC::Config::ENABLE_NIL_CREATE = true
+  end
+
 end
