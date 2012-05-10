@@ -97,6 +97,10 @@ module Gandi
   hosting.ip.info
   hosting.ip.list
   hosting.ip.update
+  hosting.product.create
+  hosting.product.delete
+  hosting.product.renew
+  hosting.product.update
   hosting.vm.count
   hosting.vm.create
   hosting.vm.create_from
@@ -112,6 +116,19 @@ module Gandi
   hosting.vm.start
   hosting.vm.stop
   hosting.vm.update
+  paas.count
+  paas.create
+  paas.delete
+  paas.info
+  paas.list
+  paas.renew
+  paas.restart
+  paas.update
+  paas.vhost.count
+  paas.vhost.create
+  paas.vhost.delete
+  paas.vhost.info
+  paas.vhost.list
   operation.count
   operation.info
   operation.list
