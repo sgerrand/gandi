@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.name              = "gandi"
   s.version           = '2.0.3'
   s.date              = Time.now.strftime('%Y-%m-%d')
-  s.summary           = "Gandi XML RPC API v2.0"
+  s.summary           = "Gandi XML RPC API v3"
   s.author            = "Olivier Ruffin"
-  s.description       = "Wrapper around gandi xml-rpc API"
+  s.description       = "Wrapper around gandi xml-rpc API v3"
   s.homepage          = "https://github.com/veilleperso/gandi"
   s.has_rdoc          = false
   s.files             = include_files
