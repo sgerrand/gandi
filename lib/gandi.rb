@@ -11,7 +11,7 @@ require 'gandi/errors'
 module Gandi
   VERSION = '2.0.2'
   
-  def silence_warnings
+  def self.silence_warnings
     old_verbose, $VERBOSE = $VERBOSE, nil
     yield
   ensure
