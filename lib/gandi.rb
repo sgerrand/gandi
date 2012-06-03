@@ -9,7 +9,7 @@ require 'gandi/session'
 require 'gandi/errors'
 
 module Gandi
-  VERSION = '2.0.2'
+  VERSION = '2.0.4'
   
   def self.silence_warnings
     old_verbose, $VERBOSE = $VERBOSE, nil
