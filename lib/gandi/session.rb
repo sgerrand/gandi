@@ -5,10 +5,13 @@ module Gandi
   contact.can_associate
   contact.can_associate_domain
   contact.create
+  contact.delete
   contact.info
   contact.list
   contact.update
   datacenter.list
+  domain.autorenew.activate
+  domain.autorenew.deactivate
   domain.available
   domain.contacts.set
   domain.count
@@ -44,11 +47,13 @@ module Gandi
   domain.packmail.renew
   domain.packmail.update
   domain.renew
+  domain.reseller.set
   domain.status.lock
   domain.status.unlock
   domain.tld.list
   domain.tld.region
   domain.transferin.proceed
+  domain.transferin.available
   domain.webredir.count
   domain.webredir.create
   domain.webredir.delete
