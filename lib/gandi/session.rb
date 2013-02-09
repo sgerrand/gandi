@@ -132,8 +132,14 @@ module Gandi
   paas.vhost.count
   paas.vhost.create
   paas.vhost.delete
+  paas.vhost.get_dns_entries
   paas.vhost.info
   paas.vhost.list
+  paas.snapshot.count
+  paas.snapshot.info
+  paas.snapshot.list
+  paas.type.count
+  paas.type.list
   operation.count
   operation.info
   operation.list
