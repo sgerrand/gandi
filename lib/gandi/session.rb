@@ -16,6 +16,9 @@ module Gandi
   domain.contacts.set
   domain.count
   domain.create
+  domain.dnssec.create
+  domain.dnssec.delete
+  domain.dnssec.list
   domain.forward.count
   domain.forward.create
   domain.forward.delete
@@ -40,6 +43,8 @@ module Gandi
   domain.mailbox.responder.deactivate
   domain.mailbox.update
   domain.nameservers.set
+  domain.owner.set
+  domain.owner.set_dry_run
   domain.packmail.autorenew
   domain.packmail.create
   domain.packmail.delete
@@ -48,12 +53,13 @@ module Gandi
   domain.packmail.update
   domain.renew
   domain.reseller.set
+  domain.restore
   domain.status.lock
   domain.status.unlock
   domain.tld.list
   domain.tld.region
-  domain.transferin.proceed
   domain.transferin.available
+  domain.transferin.proceed
   domain.webredir.count
   domain.webredir.create
   domain.webredir.delete
@@ -70,11 +76,14 @@ module Gandi
   domain.zone.record.delete
   domain.zone.record.list
   domain.zone.record.set
+  domain.zone.record.update
   domain.zone.set
   domain.zone.update
+  domain.zone.version.count
   domain.zone.version.delete
   domain.zone.version.new
   domain.zone.version.set
+  domain.zone.version.list
   hosting.datacenter.list
   hosting.disk.count
   hosting.disk.create
@@ -140,9 +149,11 @@ module Gandi
   paas.snapshot.list
   paas.type.count
   paas.type.list
+  operation.cancel
   operation.count
   operation.info
   operation.list
+  operation.relaunch
   )
 
   class ProxyCall
