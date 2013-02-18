@@ -1,7 +1,7 @@
 DOCUMENTATION
 =============
 
-See https://rpc.ote.gandi.net/doc/2.0/
+See http://doc.rpc.gandi.net/
 
 API endpoint:
 
@@ -16,7 +16,7 @@ USAGE
 require 'gandi'
 
 # test env
-api = Gandi::Session.new("24-character API key", "https://rpc.ote.gandi.net/xmlrpc/")
+api = Gandi::Session.new("24-character API key", "https://rpc.gandi.net/xmlrpc/")
 
 api.domain.list
 api.domain.info('mydomain.com')
