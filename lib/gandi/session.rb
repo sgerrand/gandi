@@ -65,7 +65,7 @@ module Gandi
   domain.webredir.delete
   domain.webredir.list
   domain.webredir.update
-  domain.zone.clone
+  domain.zone.clone_zone
   domain.zone.count
   domain.zone.create
   domain.zone.delete
@@ -81,7 +81,7 @@ module Gandi
   domain.zone.update
   domain.zone.version.count
   domain.zone.version.delete
-  domain.zone.version.new
+  domain.zone.version.new_version
   domain.zone.version.set
   domain.zone.version.list
   hosting.datacenter.list
@@ -171,6 +171,8 @@ module Gandi
       method_name = chained.join(".")
       if Gandi::VALID_METHODS.include?(method_name)
         # puts "CALL: #{method_name} - #{api_key} - #{args.inspect}"
+        method_name.sub!('clone_zone','clone')
+        method_name.sub!('new_version','new')
         res = self.server.call(method_name, api_key, *args)
         if res.is_a?(Array)
           res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
