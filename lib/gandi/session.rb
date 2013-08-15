@@ -1,6 +1,14 @@
 module Gandi
   VALID_METHODS = %w(
   catalog.list
+  cert.count
+  cert.create
+  cert.delete
+  cert.info
+  cert.list
+  cert.package.list
+  cert.renew
+  cert.update
   contact.balance
   contact.can_associate
   contact.can_associate_domain
