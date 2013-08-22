@@ -73,6 +73,7 @@ module Gandi
   domain.webredir.delete
   domain.webredir.list
   domain.webredir.update
+  domain.zone.clone
   domain.zone.clone_zone
   domain.zone.count
   domain.zone.create
@@ -89,6 +90,7 @@ module Gandi
   domain.zone.update
   domain.zone.version.count
   domain.zone.version.delete
+  domain.zone.version.new
   domain.zone.version.new_version
   domain.zone.version.set
   domain.zone.version.list
@@ -178,7 +180,6 @@ module Gandi
       self.chained << method
       method_name = chained.join(".")
       if Gandi::VALID_METHODS.include?(method_name)
-        # puts "CALL: #{method_name} - #{api_key} - #{args.inspect}"
         method_name.sub!('clone_zone','clone')
         method_name.sub!('new_version','new')
         res = self.server.call(method_name, api_key, *args)
@@ -201,6 +202,9 @@ module Gandi
     def initialize(api_key, endpoint = "https://rpc.gandi.net/xmlrpc/")
       @api_key  = api_key
       @server = XMLRPC::Client.new2(endpoint)
+      # fix a bug in ruby 2.0, http://bugs.ruby-lang.org/issues/8182
+      @server.http_header_extra = {"accept-encoding" => "identity"}
+      @server
     end
 
     def method_missing(method, *args)
