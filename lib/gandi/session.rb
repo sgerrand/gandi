@@ -207,6 +207,18 @@ module Gandi
       @server
     end
 
+    def list_methods
+      server.call('system.listMethods')
+    end
+
+    def method_signature(name)
+      server.call('system.methodSignature', name)
+    end
+
+    def method_help(name)
+      server.call('system.methodHelp', name)
+    end
+
     def method_missing(method, *args)
       ProxyCall.new(@server, self.api_key).send(method, *args)
     rescue XMLRPC::FaultException => exception
