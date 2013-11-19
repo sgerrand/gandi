@@ -9,6 +9,11 @@ require 'gandi/errors'
 module Gandi
   VERSION = '2.0.5'
 
+  ENDPOINT = {
+    test: 'https://rpc.ote.gandi.net/xmlrpc/',
+    production: 'https://rpc.gandi.net/xmlrpc/',
+  }
+
   def self.silence_warnings
     old_verbose, $VERBOSE = $VERBOSE, nil
     yield

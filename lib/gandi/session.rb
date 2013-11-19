@@ -199,7 +199,9 @@ module Gandi
   class Session
     attr_reader :api_key
 
-    def initialize(api_key, endpoint = "https://rpc.gandi.net/xmlrpc/")
+    def initialize(api_key, options = {})
+      endpoint = ENDPOINT[options[:env]] || ENDPOINT[:production]
+
       @api_key  = api_key
       @server = XMLRPC::Client.new2(endpoint)
       # fix a bug in ruby 2.0, http://bugs.ruby-lang.org/issues/8182
