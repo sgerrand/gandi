@@ -164,6 +164,7 @@ module Gandi
   operation.info
   operation.list
   operation.relaunch
+  version.info
   )
 
   class ProxyCall
