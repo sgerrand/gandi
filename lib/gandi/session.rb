@@ -180,8 +180,8 @@ module Gandi
       self.chained << method
       method_name = chained.join(".")
       if Gandi::VALID_METHODS.include?(method_name)
-        method_name.sub!('clone_zone','clone')
-        method_name.sub!('new_version','new')
+        method_name.sub!('clone_zone', 'clone')
+        method_name.sub!('new_version', 'new')
         res = self.server.call(method_name, api_key, *args)
         if res.is_a?(Array)
           res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
@@ -203,14 +203,14 @@ module Gandi
       @api_key  = api_key
       @server = XMLRPC::Client.new2(endpoint)
       # fix a bug in ruby 2.0, http://bugs.ruby-lang.org/issues/8182
-      @server.http_header_extra = {"accept-encoding" => "identity"}
+      @server.http_header_extra = { "accept-encoding" => "identity" }
       @server
     end
 
     def method_missing(method, *args)
       ProxyCall.new(@server, self.api_key).send(method, *args)
     rescue XMLRPC::FaultException => exception
-      raise(exception.faultCode < 500000 ? Gandi::ServerError : Gandi::DataError, exception.faultString)
+      raise(exception.faultCode < 500_000 ? Gandi::ServerError : Gandi::DataError, exception.faultString)
     end
   end
 end
