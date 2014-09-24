@@ -200,7 +200,7 @@ module Gandi
     attr_reader :api_key
 
     def initialize(api_key, options = {})
-      endpoint = ENDPOINT[options[:env]] || ENDPOINT[:production]
+      endpoint = options.is_a?(Hash) ? (ENDPOINT[options[:env]] || ENDPOINT[:production]) : options
 
       @api_key  = api_key
       @server = XMLRPC::Client.new2(endpoint)
