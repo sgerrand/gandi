@@ -31,9 +31,6 @@ api.domain.list
 api.domain.info('mydomain.com')
 api.catalog.list(product: {type: 'domains'})
 ...
-api.domain.zone.clone_zone('zone_id') # instead of api.domain.zone.clone
-api.domain.zone.version.new_version('zone_id') # instead of domain.zone.version.new
-...
 ```
 
 ### Operational Test and Evaluation (OT&E) Endpoint

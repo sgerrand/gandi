@@ -7,7 +7,7 @@ require 'gandi/session'
 require 'gandi/errors'
 
 module Gandi
-  VERSION = '2.1.0'
+  VERSION = '2.1.1'
 
   ENDPOINT = {
     test: 'https://rpc.ote.gandi.net/xmlrpc/',
