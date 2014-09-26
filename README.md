@@ -43,7 +43,7 @@ Alongside the production API, Gandi provides an Operational Test and Evaluation 
 ```ruby
 require 'gandi'
 
-api = Gandi::Session.new("24-character API key", "https://rpc.ote.gandi.net/xmlrpc/")
+api = Gandi::Session.new("24-character API key", env: :test)
 
 api.domain.list
 ...
