@@ -181,7 +181,12 @@ module Gandi
       self.chained << method
       method_name = chained.join(".")
       if Gandi::VALID_METHODS.include?(method_name)
-        res = self.server.call(method_name, api_key, *args)
+        begin
+          res = self.server.call(method_name, api_key, *args)
+        rescue XMLRPC::FaultException => e
+          raise Gandi::FaultCode.parse(e.faultCode, e.faultString).exception
+        end
+
         if res.is_a?(Array)
           res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
         elsif res.is_a?(Hash)
@@ -222,8 +227,6 @@ module Gandi
 
     def method_missing(method, *args)
       ProxyCall.new(@server, self.api_key).send(method, *args)
-    rescue XMLRPC::FaultException => exception
-      raise(exception.faultCode < 500_000 ? Gandi::ServerError : Gandi::DataError, exception.faultString)
     end
   end
 end
