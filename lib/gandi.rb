@@ -5,6 +5,7 @@ require 'hashie'
 require 'xmlrpc/client'
 require 'gandi/session'
 require 'gandi/errors'
+require 'gandi/fault_code'
 
 module Gandi
   VERSION = '2.1.1'

@@ -48,6 +48,23 @@ api.domain.list
 
 For further information see the Gandi API documention at http://doc.rpc.gandi.net/
 
+### Fault codes
+
+When the XMLRPC call returns an error, an exception is raised.
+`Gandi::DataError` is raised if the error is due to faulty user input and `Gandi::ServerError` is raised if it is caused by a server-side internal error.
+
+All the possible fault codes can be found in [Gandi API manual](http://doc.rpc.gandi.net/errors/fault_codes.html).
+
+Both exceptions contain a `Gandi::FaultCode` object which stores the object name and the cause of the error:
+```ruby
+fault_code = Gandi::FaultCode.parse(505237)
+# => #<Gandi::FaultCode::Data:...>
+fault_code.object
+# => :object_fqdn
+fault_code.cause
+# => :cause_badparameter
+```
+
 ## Contributing
 
 1. Fork it
