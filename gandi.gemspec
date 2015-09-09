@@ -6,7 +6,7 @@ end.flatten
 
 Gem::Specification.new do |s|
   s.name              = "gandi"
-  s.version           = '2.1.1'
+  s.version           = '2.1.2'
   s.license           = 'MIT'
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "Gandi XML RPC API v3"
