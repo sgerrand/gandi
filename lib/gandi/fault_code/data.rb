@@ -134,7 +134,6 @@ module Gandi
         606 => :object_site_offer,
         607 => :object_site_name,
         608 => :object_site_count,
-        609 => :object_sitemaker_connection,
         609 => :object_site_key,
         700 => :object_tva,
         701 => :object_currency,
