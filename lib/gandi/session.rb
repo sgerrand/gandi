@@ -1,32 +1,62 @@
 module Gandi
+  OLD_METHODS = %w(
+  domain.owner.set_dry_run
+  hosting.iface.ip_attach
+  hosting.iface.ip_detach
+  hosting.ip.create
+  hosting.ip.delete
+  )
   VALID_METHODS = %w(
   catalog.list
+
+  cert.change_dcv
   cert.count
   cert.create
   cert.delete
+  cert.get_dcv_params
   cert.info
   cert.list
   cert.package.list
   cert.renew
+  cert.resend_dcv
   cert.update
+
   contact.balance
   contact.can_associate
   contact.can_associate_domain
+  contact.count
   contact.create
   contact.delete
   contact.info
   contact.list
+  contact.release
   contact.update
+  contact.reachability.resend
+
   datacenter.list
+
   domain.autorenew.activate
   domain.autorenew.deactivate
   domain.available
   domain.contacts.set
   domain.count
   domain.create
+  domain.claims.accept
+  domain.claims.check
+  domain.claims.info
+  domain.delete.accept
+  domain.delete.available
+  domain.delete.decline
+  domain.delete.info
+  domain.delete.proceed
   domain.dnssec.create
   domain.dnssec.delete
   domain.dnssec.list
+  domain.eoi.count
+  domain.eoi.create
+  domain.eoi.delete
+  domain.eoi.info
+  domain.eoi.list
   domain.forward.count
   domain.forward.create
   domain.forward.delete
@@ -50,18 +80,25 @@ module Gandi
   domain.mailbox.responder.activate
   domain.mailbox.responder.deactivate
   domain.mailbox.update
+  domain.misc.ukrights
   domain.nameservers.set
   domain.owner.set
-  domain.owner.set_dry_run
   domain.packmail.autorenew
   domain.packmail.create
   domain.packmail.delete
   domain.packmail.info
   domain.packmail.renew
   domain.packmail.update
+  domain.release
   domain.renew
   domain.reseller.set
   domain.restore
+  domain.smd.count
+  domain.smd.create
+  domain.smd.delete
+  domain.smd.extract
+  domain.smd.info
+  domain.smd.list
   domain.status.lock
   domain.status.unlock
   domain.tld.list
@@ -89,9 +126,12 @@ module Gandi
   domain.zone.update
   domain.zone.version.count
   domain.zone.version.delete
+  domain.zone.version.list
   domain.zone.version.new
   domain.zone.version.set
-  domain.zone.version.list
+
+  hosting.catalog.list
+  hosting.catalog.price
   hosting.datacenter.list
   hosting.disk.count
   hosting.disk.create
@@ -107,22 +147,55 @@ module Gandi
   hosting.iface.create
   hosting.iface.delete
   hosting.iface.info
-  hosting.iface.ip_attach
-  hosting.iface.ip_detach
   hosting.iface.list
   hosting.iface.update
   hosting.image.info
   hosting.image.list
   hosting.ip.count
-  hosting.ip.create
-  hosting.ip.delete
   hosting.ip.info
   hosting.ip.list
   hosting.ip.update
+  hosting.metric.available
+  hosting.metric.query
   hosting.product.create
   hosting.product.delete
   hosting.product.renew
   hosting.product.update
+  hosting.rating.list
+  hosting.rproxy.probe.check_server
+  hosting.rproxy.probe.disable
+  hosting.rproxy.probe.enable
+  hosting.rproxy.probe.test
+  hosting.rproxy.probe.update
+  hosting.rproxy.count
+  hosting.rproxy.create
+  hosting.rproxy.delete
+  hosting.rproxy.info
+  hosting.rproxy.list
+  hosting.rproxy.update
+  hosting.rproxy.server.count
+  hosting.rproxy.server.create
+  hosting.rproxy.server.delete
+  hosting.rproxy.server.disable
+  hosting.rproxy.server.enable
+  hosting.rproxy.server.list
+  hosting.rproxy.vhost.alter_zone
+  hosting.rproxy.vhost.count
+  hosting.rproxy.vhost.create
+  hosting.rproxy.vhost.delete
+  hosting.rproxy.vhost.get_dns_entries
+  hosting.rproxy.vhost.list
+  hosting.ssh.count
+  hosting.ssh.create
+  hosting.ssh.delete
+  hosting.ssh.info
+  hosting.ssh.list
+  hosting.vlan.count
+  hosting.vlan.create
+  hosting.vlan.delete
+  hosting.vlan.info
+  hosting.vlan.list
+  hosting.vlan.update
   hosting.vm.count
   hosting.vm.create
   hosting.vm.create_from
@@ -138,6 +211,21 @@ module Gandi
   hosting.vm.start
   hosting.vm.stop
   hosting.vm.update
+
+  notification.count
+  notification.list
+  notification.test
+  notification.subscription.count
+  notification.subscription.create
+  notification.subscription.delete
+  notification.subscription.list
+
+  operation.cancel
+  operation.count
+  operation.info
+  operation.list
+  operation.relaunch
+
   paas.count
   paas.create
   paas.delete
@@ -145,6 +233,11 @@ module Gandi
   paas.list
   paas.renew
   paas.restart
+  paas.snapshot.count
+  paas.snapshot.info
+  paas.snapshot.list
+  paas.type.count
+  paas.type.list
   paas.update
   paas.vhost.count
   paas.vhost.create
@@ -152,16 +245,25 @@ module Gandi
   paas.vhost.get_dns_entries
   paas.vhost.info
   paas.vhost.list
-  paas.snapshot.count
-  paas.snapshot.info
-  paas.snapshot.list
-  paas.type.count
-  paas.type.list
-  operation.cancel
-  operation.count
-  operation.info
-  operation.list
-  operation.relaunch
+
+  security.key.renew
+
+  site.alter_zone
+  site.count
+  site.create
+  site.delete
+  site.edit
+  site.get_dns_entries
+  site.info
+  site.key.create
+  site.key.delete
+  site.key.list
+  site.key.update
+  site.list
+  site.package.list
+  site.renew
+  site.update
+
   version.info
   )
 

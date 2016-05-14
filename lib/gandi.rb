@@ -8,7 +8,7 @@ require 'gandi/errors'
 require 'gandi/fault_code'
 
 module Gandi
-  VERSION = '2.1.1'
+  VERSION = '3.3.27'
 
   ENDPOINT = {
     test: 'https://rpc.ote.gandi.net/xmlrpc/',
