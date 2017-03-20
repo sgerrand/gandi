@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MatthiasWinkelmann/gandi.svg?branch=master)](https://travis-ci.org/MatthiasWinkelmann/gandi)
+
 # Gandi
 
 This is a Ruby interface to the [Gandi](http://gandi.net) XML-RPC API.
