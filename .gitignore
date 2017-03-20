@@ -1,2 +1,6 @@
-.DS_Store
-*.gem
+/.bundle/
+/.yardoc
+/Gemfile
+/Gemfile.lock
+/coverage/
+/doc/

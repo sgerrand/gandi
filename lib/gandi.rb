@@ -1,22 +1,20 @@
-# Add the directory containing this file to the start of the load path if it isn't there already.
-$:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
 require 'hashie'
 require 'xmlrpc/client'
+require 'gandi/version'
 require 'gandi/session'
 require 'gandi/errors'
 require 'gandi/fault_code'
 
 module Gandi
-  VERSION = '3.3.27'
-
+   
   ENDPOINT = {
     test: 'https://rpc.ote.gandi.net/xmlrpc/',
-    production: 'https://rpc.gandi.net/xmlrpc/',
-  }
+    production: 'https://rpc.gandi.net/xmlrpc/'
+  }.freeze
 
   def self.silence_warnings
-    old_verbose, $VERBOSE = $VERBOSE, nil
+    old_verbose = $VERBOSE
+    $VERBOSE = nil
     yield
   ensure
     $VERBOSE = old_verbose
