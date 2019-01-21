@@ -6,7 +6,7 @@ end.flatten
 
 Gem::Specification.new do |s|
   s.name              = "gandi"
-  s.version           = '3.3.27'
+  s.version           = '3.3.28'
   s.license           = 'MIT'
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "Gandi XML RPC API v3"
@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.files             = include_files
   s.require_path      = "lib"
   s.add_dependency 'hashie'
+  s.add_dependency 'xmlrpc'
 end
