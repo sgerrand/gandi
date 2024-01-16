@@ -1,3 +1,5 @@
+require 'gandi/response'
+
 module Gandi
   OLD_METHODS = %w(
   domain.owner.set_dry_run
@@ -290,9 +292,9 @@ module Gandi
         end
 
         if res.is_a?(Array)
-          res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
+          res.collect! { |x| x.is_a?(Hash) ? Gandi::Response.new(x) : x }
         elsif res.is_a?(Hash)
-          Hashie::Mash.new(res)
+          Gandi::Response.new(res)
         else
           res
         end
