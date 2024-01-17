@@ -2,6 +2,8 @@
 
 This is a Ruby interface to the [Gandi](http://gandi.net) XML-RPC API.
 
+** this project is no longer maintained **
+
 ## Installation
 
 Add to your `Gemfile`:
